@@ -104,6 +104,10 @@ module.exports = {
                         }
                     },
                     {
+                        test: /\.svg$/,
+                        use: ['@svgr/webpack']
+                    },
+                    {
                         exclude: /\.(js|html|json)$/,
                         loader: 'file-loader',
                         options: {

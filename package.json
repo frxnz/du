@@ -26,6 +26,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/styles": "^4.9.0",
+    "@svgr/webpack": "^5.2.0",
     "connected-react-router": "^6.6.1",
     "history": "^4.10.1",
     "immer": "^5.3.2",

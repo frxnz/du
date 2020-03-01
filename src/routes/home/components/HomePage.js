@@ -1,21 +1,15 @@
 const React = require('react');
 const { default: Styled } = require('styled-components');
-const { default: DuckImage } = require('../assets/duck.jpg');
-const { default: Typography } = require('@material-ui/core/Typography');
 
 const internals = {};
 
 module.exports = () => {
 
-    const { Image, HomepageContainer, WelcomeMessage } = internals;
+    const { HomepageContainer } = internals;
 
     return (
         <HomepageContainer>
-            <WelcomeMessage>Welcome!</WelcomeMessage>
-            <Image
-                alt='This is a duck, because Redux!'
-                src={DuckImage}
-            />
+            Absolutely fetching...
         </HomepageContainer>
     );
 };
@@ -29,10 +23,4 @@ internals.Image = Styled.img`
 internals.HomepageContainer = Styled.div`
     align-self: center;
     margin: auto;
-`;
-
-internals.WelcomeMessage = Styled(Typography).attrs({ variant: 'h4', align: 'center' })`
-
-    // Example leveraging the mui theme from inside a styled-component
-    color: ${({ theme }) => theme.palette.secondary.main};
 `;

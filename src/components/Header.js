@@ -1,35 +1,63 @@
 const React = require('react');
-const { NavLink } = require('react-router-dom');
 const { default: Styled } = require('styled-components');
-const { default: Typography } = require('@material-ui/core/Typography');
-const { default: AppBar } = require('@material-ui/core/AppBar');
-const { default: Toolbar } = require('@material-ui/core/Toolbar');
-const { default: Button } = require('@material-ui/core/Button');
+const { default: Logo } = require('../assets/logo.svg');
+
+console.log(Logo);
 
 const internals = {};
 
 module.exports = () => {
 
-    const { Link, SiteTitle } = internals;
+    const { Header, StyledLogo, Hamburger } = internals;
 
     return (
-        <AppBar position='static'>
-            <Toolbar>
-                <SiteTitle>Strangeluv</SiteTitle>
-                <Link exact to='/'>Home</Link>
-                <Link to='/counter'>Counter</Link>
-            </Toolbar>
-        </AppBar>
+        <Header position='static'>
+            <Hamburger />
+            <StyledLogo />
+            <Hamburger />
+        </Header>
     );
 };
 
-internals.Link = Styled(Button).attrs({ component: NavLink, color: 'inherit' })`
-    &.active {
-        font-weight: bold;
-        text-decoration: underline;
+internals.Header = Styled.header`
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: #222;
+`;
+
+internals.Hamburger = Styled.button`
+    display: block;
+    position: relative;
+    width: 2.5em;
+    height: 3em;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 33.3333%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: white;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 66.6667%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: white;
     }
 `;
 
-internals.SiteTitle = Styled(Typography).attrs({ variant: 'h6' })`
-    flex-grow: 1;
+internals.StyledLogo = Styled(Logo)`
+    width: 4em;
+    fill: white;
 `;
